@@ -4,6 +4,9 @@ require_once('./utils/database.php');
 
 $tourOperators = new TourOperatorManagement($db);
 $tourOperators->getAllOperators();
+
+$destination = new DestinationManagement($db);
+$destination->getAllDestination();
 ?>
 
 <!DOCTYPE html>
