@@ -4,14 +4,19 @@ class TourOperator
 {
     private int $id;
     private string $name;
-    private $link;
-    private $gradeCount;
-    private $gradeTotal;
-    private $isPremium;
+    private string $link;
+    private int $gradeCount;
+    private int $gradeTotal;
+    private bool $isPremium;
 
-    public function __construct($db)
+    public function __construct(array $data )
     {
-        
+        if(isset($data['id'])){
+            $this->id = $data['id'];
+         }
+         $this->name = $data['name_operator'];
+         $this->link = $data['link_operator'];
+         $this->isPremium = $data['is_premium'];
     }
 
 
