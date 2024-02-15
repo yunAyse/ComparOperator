@@ -1,6 +1,4 @@
 <?php
-require_once './utils/autoload.php';
-require_once './utils/database.php';
 
 class DestinationManagement {
   private PDO $db;
@@ -17,7 +15,5 @@ class DestinationManagement {
       return $destinations;
     }
 
-    // public function createDestination() {
-    //   $request = $this->db->prepare("INSERT INTO")
-    // }
+  
 }

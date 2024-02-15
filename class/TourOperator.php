@@ -1,5 +1,4 @@
 <?php
-require_once '../utils/autoload.php';
 
 class TourOperator
 {

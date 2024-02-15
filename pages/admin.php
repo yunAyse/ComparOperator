@@ -15,7 +15,7 @@ require_once('../utils/database.php');
 
 <body>
     <h2>Formulaire de déstination</h2>
-    <form action="../process/AdminManagement.php" method="post">
+    <form action="" method="post">
         <ul>
             <li>
                 <label for="location">Location:</label>
@@ -30,9 +30,10 @@ require_once('../utils/database.php');
                 <input type="number" id="price" name="price" />
             </li>
         </ul>
+        <input type="submit" value="Valider">
     </form>
     <h2>Tour operator</h2>
-    <form action="../process/AdminManagement.php" method="post">
+    <form action="" method="post">
         <ul>
             <li>
                 <label for="name">Location:</label>
@@ -43,11 +44,7 @@ require_once('../utils/database.php');
                 <input type="url" id="link" name="link_operator" />
             </li>
             <li>
-                <label for="grade_total">Price:</label>
-                <input type="number" id="grade_total" name="grade_total" />
-            </li>
-            <li>
-                <label for="grade_total">Price:</label>
+                <label for="grade_total">Premium:</label>
                 <select name="is_premium" id="is_premium">
                     <option value="1">
                         Premium
@@ -58,6 +55,9 @@ require_once('../utils/database.php');
                 </select>
             </li>
         </ul>
+        <li>
+            <input type="submit" value="Valider">
+        </li>
     </form>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
