@@ -15,7 +15,7 @@ require_once('../utils/database.php');
 
 <body>
     <h2>Formulaire de déstination</h2>
-    <form action="../process/AdminManagement.php" method="post">
+    <form action="../process/add-operator.php" method="post">
         <ul>
             <li>
                 <label for="location">Location:</label>
@@ -32,7 +32,7 @@ require_once('../utils/database.php');
         </ul>
     </form>
     <h2>Tour operator</h2>
-    <form action="../process/AdminManagement.php" method="post">
+    <form action="../process/add-operator.php" method="post">
         <ul>
             <li>
                 <label for="name">Location:</label>
@@ -42,12 +42,9 @@ require_once('../utils/database.php');
                 <label for="link">Operator:</label>
                 <input type="url" id="link" name="link_operator" />
             </li>
+            
             <li>
-                <label for="grade_total">Price:</label>
-                <input type="number" id="grade_total" name="grade_total" />
-            </li>
-            <li>
-                <label for="grade_total">Price:</label>
+                <label for="grade_total">Premium:</label>
                 <select name="is_premium" id="is_premium">
                     <option value="1">
                         Premium
@@ -56,6 +53,9 @@ require_once('../utils/database.php');
                         Classic
                     </option>
                 </select>
+            </li>
+            <li>
+                <input type="submit" value="Valider">
             </li>
         </ul>
     </form>
