@@ -1,6 +1,10 @@
 <?php
 require_once('../utils/autoload.php');
 require_once('../utils/database.php');
+
+$tourOperators = new TourOperatorManagement($db);
+$tourOperators = $tourOperators->getAllOperators();
+// var_dump($tourOperators);
 ?>
 
 <!DOCTYPE html>
@@ -23,7 +27,12 @@ require_once('../utils/database.php');
             </li>
             <li>
                 <label for="operator">Operator:</label>
-                <input type="text" id="operator" name="operator" />
+                <select name="operator" id="operator">
+                <?php
+                foreach ($tourOperators as $tourOperator) {?>
+                    <option value="<?php $tourOperator['id']?>"><?php echo $tourOperator['name'] ?></option>
+                   <?php } ?>
+                </select>
             </li>
             <li>
                 <label for="price">Price:</label>
@@ -36,11 +45,11 @@ require_once('../utils/database.php');
     <form action="../process/add-operator.php" method="post">
         <ul>
             <li>
-                <label for="name">Location:</label>
+                <label for="name">Name: </label>
                 <input type="text" id="name" name="name_operator" />
             </li>
             <li>
-                <label for="link">Operator:</label>
+                <label for="link">Link:</label>
                 <input type="url" id="link" name="link_operator" />
             </li>
             
@@ -55,13 +64,8 @@ require_once('../utils/database.php');
                     </option>
                 </select>
             </li>
-            <li>
-                <input type="submit" value="Valider">
-            </li>
         </ul>
-        <li>
             <input type="submit" value="Valider">
-        </li>
     </form>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>

@@ -3,9 +3,9 @@
 class Destination
 {
     private int $id;
-    private $location;
-    private $price;
-    private $tourOperator;
+    private string $location;
+    private int $price;
+    private string $tourOperator;
 
     public function __construct($db)
     {
