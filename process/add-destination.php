@@ -8,7 +8,7 @@ if (
     isset($_POST['price']) && !empty($_POST['price']) 
   
 ) {
-    $tourOperator = new TourOperator([
+    $destination = new destination([
         'location'=> $_POST['location'],
         'price'=> $_POST['price']
        
