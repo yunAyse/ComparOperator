@@ -36,11 +36,11 @@ require_once('../utils/database.php');
     <form action="../process/add-operator.php" method="post">
         <ul>
             <li>
-                <label for="name">Location:</label>
+                <label for="name">Name:</label>
                 <input type="text" id="name" name="name_operator" />
             </li>
             <li>
-                <label for="link">Operator:</label>
+                <label for="link">Link:</label>
                 <input type="url" id="link" name="link_operator" />
             </li>
             
@@ -54,9 +54,6 @@ require_once('../utils/database.php');
                         Classic
                     </option>
                 </select>
-            </li>
-            <li>
-                <input type="submit" value="Valider">
             </li>
         </ul>
         <li>

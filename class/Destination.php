@@ -7,9 +7,14 @@ class Destination
     private $price;
     private $tourOperator;
 
-    public function __construct($db)
+    public function __construct($data)
     {
-        
+        if(isset($data['id'])){
+            $this->id = $data['id'];
+         }
+         $this->location = $data['location'];
+         $this->price = $data['price'];
+       
     }
 
      
