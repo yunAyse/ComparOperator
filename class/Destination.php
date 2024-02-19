@@ -5,7 +5,7 @@ class Destination
     private int $id;
     private string $location;
     private int $price;
-    private string $tourOperator;
+    private int $tourOperator;
 
     public function __construct(array $data)
     {
@@ -14,6 +14,7 @@ class Destination
          }
          $this->location = $data['location'];
          $this->price = $data['price'];
+         $this->tourOperator = $data['operator_id'];
        
     }
 

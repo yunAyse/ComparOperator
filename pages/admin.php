@@ -3,12 +3,21 @@ require_once('../utils/autoload.php');
 require_once('../utils/database.php');
 
 $tourOperators = new TourOperatorManagement($db);
-$tourOperators = $tourOperators->getAllOperators();
+$tourOperators = $tourOperators->getAllOperators(1);
 // var_dump($tourOperators);
+
+$destinationManagement = new DestinationManagement($db);
+// $destinationManagement->connectDestinationAndOperator();
+
+
+foreach ($tourOperators as $tourOperator) { 
+
+    var_dump($tourOperator[0]);
+  } 
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <meta charset="UTF-8">
@@ -19,7 +28,7 @@ $tourOperators = $tourOperators->getAllOperators();
 
 <body>
     <h2>Formulaire de déstination</h2>
-    <form action="../process/add-operator.php" method="post">
+    <form action="../process/add-destination.php" method="post">
         <ul>
             <li>
                 <label for="location">Location:</label>
@@ -27,10 +36,11 @@ $tourOperators = $tourOperators->getAllOperators();
             </li>
             <li>
                 <label for="operator">Operator:</label>
-                <select name="operator" id="operator">
+                <select name="operator_id" id="operator_id">
                 <?php
-                foreach ($tourOperators as $tourOperator) {?>
-                    <option value="<?php $tourOperator['id']?>"><?php echo $tourOperator['name'] ?></option>
+                foreach ($tourOperators as $tourOperator) { ?>
+                
+                    <option value="<?php echo $tourOperator['id']?>"><?php echo $tourOperator['name'] ?></option>
                    <?php } ?>
                 </select>
             </li>

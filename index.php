@@ -3,10 +3,15 @@ require_once('./utils/autoload.php');
 require_once('./utils/database.php');
 
 $tourOperators = new TourOperatorManagement($db);
-$tourOperators->getAllOperators();
 
-$destination = new DestinationManagement($db);
-$destination->getAllDestination();
+$tourOperators->getAllOperators(1);
+
+$destinationManagement = new DestinationManagement($db);
+$destinationManagement->getAllDestinations();
+
+$destinationById = $destinationManagement->getDestinationById(1);
+var_dump($destinationById);
+
 ?>
 
 <!DOCTYPE html>

@@ -8,12 +8,17 @@ class TourOperatorManagement
         $this->db = $db;
     }
 
-    public function getAllOperators(){
+    public function getAllOperators($valeur){
 
-        $request = $this->db->prepare('SELECT * FROM tour_operator');
-        $request->execute();
-        $tourOperators = $request->fetchAll();
+        $request = $this->db->query("SELECT * FROM tour_operator WHERE tour_operator.id = $valeur");
+        $tourOperators = $request->fetch();
         return $tourOperators;
+
+
+        // $request = $this->db->prepare('SELECT * FROM tour_operator');
+        // $request->execute();
+        // $tourOperators = $request->fetchAll();
+        // return $tourOperators;
 
     }
 
