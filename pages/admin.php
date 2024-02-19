@@ -3,8 +3,8 @@ require_once('../utils/autoload.php');
 require_once('../utils/database.php');
 
 $tourOperators = new TourOperatorManagement($db);
-$tourOperators = $tourOperators->getAllOperators(1);
-// var_dump($tourOperators);
+$tourOperators = $tourOperators->getAllOperators();
+var_dump($tourOperators);
 
 $destinationManagement = new DestinationManagement($db);
 // $destinationManagement->connectDestinationAndOperator();
@@ -12,7 +12,7 @@ $destinationManagement = new DestinationManagement($db);
 
 foreach ($tourOperators as $tourOperator) { 
 
-    var_dump($tourOperator[0]);
+    var_dump($tourOperator);
   } 
 ?>
 
@@ -37,11 +37,11 @@ foreach ($tourOperators as $tourOperator) {
             <li>
                 <label for="operator">Operator:</label>
                 <select name="operator_id" id="operator_id">
-                <?php
+                 <?php
                 foreach ($tourOperators as $tourOperator) { ?>
                 
                     <option value="<?php echo $tourOperator['id']?>"><?php echo $tourOperator['name'] ?></option>
-                   <?php } ?>
+                   <?php } ?> 
                 </select>
             </li>
             <li>
