@@ -10,10 +10,10 @@ $destinationManagement = new DestinationManagement($db);
 // $destinationManagement->connectDestinationAndOperator();
 
 
-foreach ($tourOperators as $tourOperator) { 
+foreach ($tourOperators as $tourOperator) {
 
     var_dump($tourOperator[0]);
-  } 
+}
 ?>
 
 <!DOCTYPE html>
@@ -37,11 +37,11 @@ foreach ($tourOperators as $tourOperator) {
             <li>
                 <label for="operator">Operator:</label>
                 <select name="operator_id" id="operator_id">
-                <?php
-                foreach ($tourOperators as $tourOperator) { ?>
-                
-                    <option value="<?php echo $tourOperator['id']?>"><?php echo $tourOperator['name'] ?></option>
-                   <?php } ?>
+                    <?php
+                    foreach ($tourOperators as $tourOperator) { ?>
+
+                        <option value="<?php echo $tourOperator['id'] ?>"><?php echo $tourOperator['name'] ?></option>
+                    <?php } ?>
                 </select>
             </li>
             <li>
@@ -62,7 +62,7 @@ foreach ($tourOperators as $tourOperator) {
                 <label for="link">Link:</label>
                 <input type="url" id="link" name="link_operator" />
             </li>
-            
+
             <li>
                 <label for="grade_total">Premium:</label>
                 <select name="is_premium" id="is_premium">
@@ -75,7 +75,7 @@ foreach ($tourOperators as $tourOperator) {
                 </select>
             </li>
         </ul>
-            <input type="submit" value="Valider">
+        <input type="submit" value="Valider">
     </form>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>

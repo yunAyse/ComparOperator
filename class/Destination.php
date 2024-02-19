@@ -9,22 +9,21 @@ class Destination
 
     public function __construct(array $data)
     {
-        if(isset($data['id'])){
+        if (isset($data['id'])) {
             $this->id = $data['id'];
-         }
-         $this->location = $data['location'];
-         $this->price = $data['price'];
-         $this->tourOperator = $data['operator_id'];
-       
+        }
+        $this->location = $data['location'];
+        $this->price = $data['price'];
+        $this->tourOperator = $data['operator_id'];
     }
 
-     
+
     public function getId()
     {
         return $this->id;
     }
 
-   
+
     public function setId($id)
     {
         $this->id = $id;
@@ -32,13 +31,13 @@ class Destination
         return $this;
     }
 
-    
+
     public function getLocation()
     {
         return $this->location;
     }
 
-   
+
     public function setLocation($location)
     {
         $this->location = $location;
@@ -48,7 +47,7 @@ class Destination
 
     /**
      * Get the value of price
-     */ 
+     */
     public function getPrice()
     {
         return $this->price;
@@ -58,7 +57,7 @@ class Destination
      * Set the value of price
      *
      * @return  self
-     */ 
+     */
     public function setPrice($price)
     {
         $this->price = $price;
@@ -68,7 +67,7 @@ class Destination
 
     /**
      * Get the value of tourOperator
-     */ 
+     */
     public function getTourOperator()
     {
         return $this->tourOperator;
@@ -78,7 +77,7 @@ class Destination
      * Set the value of tourOperator
      *
      * @return  self
-     */ 
+     */
     public function setTourOperator($tourOperator)
     {
         $this->tourOperator = $tourOperator;
