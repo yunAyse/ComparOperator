@@ -14,6 +14,7 @@ class Destination
          }
          $this->location = $data['location'];
          $this->price = $data['price'];
+         $this->id = $data['operator_id'];
        
     }
 

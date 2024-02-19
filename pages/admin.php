@@ -27,7 +27,7 @@ $tourOperators = $tourOperators->getAllOperators();
             </li>
             <li>
                 <label for="operator">Operator:</label>
-                <select name="operator" id="operator">
+                <select name="operator_id" id="operator">
                 <?php
                 foreach ($tourOperators as $tourOperator) {?>
                     <option value="<?php $tourOperator['id']?>"><?php echo $tourOperator['name'] ?></option>
