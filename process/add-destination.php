@@ -12,6 +12,7 @@ var_dump($_POST['operator_id']);
         'location'=> $_POST['location'],
         'operator_id' => intval($_POST['operator_id']),
         'price'=> $_POST['price']
+        
        
     ]);
 
