@@ -12,14 +12,14 @@ $destination = new Destination([
 // $destinationById = $destinationManagement->getDestinationById($destination);
 
 $destinationManagement = new DestinationManagement($db);
-$idDestination = $destinationManagement->getDestinationByLocation($_POST['the_location']);
+$idDestination = $destinationManagement->getDestinationByLocation($_POST['location']);
 var_dump($destinationManagement->getDestinationByLocation($destination));
 
-var_dump($_POST['the_location']); 
+var_dump($idDestination); 
 
 ?>
 
-<!DOCTYPE html>
+<!DOCTYPE html>  
 <html lang="en">
 <head>
   <meta charset="UTF-8">

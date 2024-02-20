@@ -4,7 +4,7 @@ require_once('./utils/database.php');
 
 $tourOperators = new TourOperatorManagement($db);
 
-$tourOperators->getAllOperators();
+$tourOperators = $tourOperators->getAllOperators();
 
 $destinationManagement = new DestinationManagement($db);
 $destinationManagement->getAllDestinations();
@@ -22,7 +22,7 @@ $allDestinations = $destinationManagement->getAllDestinations();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="./styles/style.css">
-    <title>Tour Operator</title>
+    <title>Montis Nivei</title>
 </head>
 <main>
 
@@ -33,16 +33,14 @@ $allDestinations = $destinationManagement->getAllDestinations();
                     <div class="d-flex flex-column justify-content-center pt-5">
                         <h1>Montis Nivei</h1>
                         <div class="d-flex justify-content-between gap-5 pt-5">
-
                             <?php foreach ($allDestinations as $destination) { ?>
                                 <div class="card" style="width: 18rem;">
                                     <img src="./img-destinations/<?php echo $destination['location'] ?>.jpg" class="card-img-top" height="165rem;" alt="...">
                                     <div class="card-body">
                                         <h5 class="card-title"><?php echo $destination['location'] ?></h5>
                                         <form action="./pages/destination.php" method="post">
-                                                <input type="submit" class="bg-info px-2 text-light border-0 rounded" value="Select">
+                                            <input type="submit" class="bg-info px-2 text-light border-0 rounded" value="Select">
                                             <input type="hidden" name="the_location" value="<?php echo $destination['location'] ?>">
-                                            <?php var_dump($destination['location']) ?>
                                         </form>
                                     </div>
                                 </div>
