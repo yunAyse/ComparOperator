@@ -8,6 +8,7 @@ $tourOperators->getAllOperators(1);
 
 $destinationManagement = new DestinationManagement($db);
 $destinationManagement->getAllDestinations();
+$allDestinations = $destinationManagement->getAllDestinations();
 
 $allDestinations = $destinationManagement->getAllDestinations();
 

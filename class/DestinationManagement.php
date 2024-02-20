@@ -9,13 +9,12 @@ class DestinationManagement
     $this->db = $db;
   }
 
-  public function getAllDestinations()
-  {
-    $request = $this->db->query("SELECT * FROM destination");
-    $destinations = $request->fetchAll();
-    // var_dump($destinations);
-    return $destinations;
-  }
+    public function getAllDestinations() {
+      $request = $this->db->query("SELECT * FROM destination");
+      $destinations = $request->fetchAll();
+  
+      return $destinations;
+    }
 
     public function getDestinationByLocation(Destination $destination) {
       $request = $this->db->prepare("SELECT * FROM destination WHERE location = :location");
