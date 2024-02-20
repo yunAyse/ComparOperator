@@ -23,7 +23,7 @@ class DestinationManagement
         // ['id' => $destination->getId()] 
       );
       var_dump($destination->getLocation());
-      return $request->fetch(); 
+      return $request->fetchAll(); 
     }
 
 

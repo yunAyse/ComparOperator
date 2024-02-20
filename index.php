@@ -10,7 +10,6 @@ $destinationManagement = new DestinationManagement($db);
 $destinationManagement->getAllDestinations();
 $allDestinations = $destinationManagement->getAllDestinations();
 
-$allDestinations = $destinationManagement->getAllDestinations();
 // var_dump($allDestinations);
 ?>
 
@@ -27,12 +26,35 @@ $allDestinations = $destinationManagement->getAllDestinations();
 <main>
 
     <body>
+
+        <header>
+            <nav class="navbar navbar-expand-lg sticky-top" style="background-color: #0F151C;">
+                <div class="container-fluid d-flex justify-content-between">
+                    <div class="d-flex align-items-center gap-2">
+                        <img src="./img/mountain.png" alt="mountain-icon">
+                        <a class="navbar-brand fs-1 fw-bold text-light" href="#">Montis Nivei</a>
+                    </div>
+                    <div>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                            <div class="navbar-nav fs-6">
+                                <a class="nav-link active text-light" aria-current="page" href="#">Home</a>
+                                <a class="nav-link text-light" href="./pages/destination.php">Destinations</a>
+                                <a class="nav-link text-light" href="./pages/operator.php">Tour Operators</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
         <section id="accueil">
             <div class="container vh-100">
                 <div class="row">
                     <div class="d-flex flex-column justify-content-center pt-5">
-                        <h1>Montis Nivei</h1>
-                        <div class="d-flex justify-content-between gap-5 pt-5">
+                        <div class="d-flex flex-wrap justify-content-evenly gap-4 pt-5">
 
                             <?php foreach ($allDestinations as $destination) { ?>
                                 <div class="card" style="width: 18rem;">
@@ -40,9 +62,8 @@ $allDestinations = $destinationManagement->getAllDestinations();
                                     <div class="card-body">
                                         <h5 class="card-title"><?php echo $destination['location'] ?></h5>
                                         <form action="./pages/destination.php" method="post">
-                                                <input type="submit" class="bg-info px-2 text-light border-0 rounded" value="Select">
+                                            <input type="submit" class="bg-info px-2 text-light border-0 rounded" value="Select">
                                             <input type="hidden" name="the_location" value="<?php echo $destination['location'] ?>">
-                                            <?php var_dump($destination['location']) ?>
                                         </form>
                                     </div>
                                 </div>

@@ -27,7 +27,7 @@ $destinationManagement = new DestinationManagement($db);
     <div class="container d-flex justify-content-evenly ">
 
         <div class="card p-5">
-            <h2 class="mb-3">Formulaire de déstination</h2>
+            <h2 class="mb-3">Destination Form</h2>
             <!-- bootstrap -->
             <form class="w-50" action="../process/add-destination.php" method="post">
                 <div class="mb-3">
@@ -53,7 +53,7 @@ $destinationManagement = new DestinationManagement($db);
             </form>
         </div>
         <div class="card p-5">
-            <h2 class="mb-3">Tour operator</h2>
+            <h2 class="mb-3">Tour Operator Form</h2>
             <!-- bootstrap -->
             <form class="w-75" action="../process/add-destination.php" method="post">
                 <div class="mb-3">
