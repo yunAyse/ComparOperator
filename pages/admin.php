@@ -24,7 +24,7 @@ $destinationManagement = new DestinationManagement($db);
 </head>
 
 <body>
-    <div class="container d-flex justify-content-evenly">
+    <div class="container d-flex justify-content-evenly ">
 
         <div class="card p-5">
             <h2 class="mb-3">Formulaire de déstination</h2>
@@ -48,7 +48,7 @@ $destinationManagement = new DestinationManagement($db);
                     <input type="number" class="form-control" name="price" aria-describedby="emailHelp">
                 </div>
                 <div>
-                    <input type="submit" value="Validate" class="bg-dark text-light border-0 rounded">
+                    <input type="submit" value="Validate" class="bg-dark px-2 text-light border-0 rounded">
                 </div>
             </form>
         </div>
@@ -76,7 +76,7 @@ $destinationManagement = new DestinationManagement($db);
                     </select>
                 </div>
                 <div>
-                    <input type="submit" value="Validate" class="bg-dark text-light border-0 rounded">
+                    <input type="submit" value="Validate" class="bg-dark text-light border-0 rounded px-2">
                 </div>
             </form>
         </div>

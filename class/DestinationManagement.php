@@ -12,7 +12,7 @@ class DestinationManagement
     public function getAllDestinations() {
       $request = $this->db->query("SELECT * FROM destination");
       $destinations = $request->fetchAll();
-  
+
       return $destinations;
     }
 
