@@ -11,7 +11,7 @@ class DestinationManagement {
     public function getAllDestinations() {
       $request = $this->db->query("SELECT * FROM destination");
       $destinations = $request->fetchAll();
-      var_dump($destinations);
+  
       return $destinations;
     }
 
