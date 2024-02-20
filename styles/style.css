@@ -9,3 +9,11 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
 }
+
+#button-destination {
+  background-color: #8D9D89;
+  text-decoration: none;
+  color: whitesmoke;
+  padding: 10px 30px;
+  border-radius: 4px;
+}

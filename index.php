@@ -4,16 +4,12 @@ require_once('./utils/database.php');
 
 $tourOperators = new TourOperatorManagement($db);
 
-$tourOperators->getAllOperators(1);
+$tourOperators->getAllOperators();
 
 $destinationManagement = new DestinationManagement($db);
 $destinationManagement->getAllDestinations();
-
 $allDestinations = $destinationManagement->getAllDestinations();
-
-$destinationById = $destinationManagement->getDestinationById();
-// var_dump($destinationById);
-
+// var_dump($allDestinations);
 ?>
 
 <!DOCTYPE html>
@@ -22,11 +18,9 @@ $destinationById = $destinationManagement->getDestinationById();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./styles/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="./styles/style.css">
     <title>Tour Operator</title>
-    <link rel="stylesheet" href="./styles/style.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 <main>
 
@@ -34,18 +28,26 @@ $destinationById = $destinationManagement->getDestinationById();
         <section id="accueil">
             <div class="container vh-100">
                 <div class="row">
-                    <div class="d-flex  justify-content-center pt-5">
+                    <div class="d-flex flex-column justify-content-center pt-5">
                         <h1>Montis Nivei</h1>
-                        <div>
-                            
+                        <div class="d-flex justify-content-between pt-5">
+
+                            <?php foreach ($allDestinations as $destination) { ?>
+                                <div class="card" style="width: 18rem;">
+                                    <img src="./img-destinations/<?php echo $destination['location'] ?>.jpg" class="card-img-top" height="165rem;" alt="...">
+                                    <div class="card-body">
+                                        <h5 class="card-title"><?php echo $destination['location'] ?></h5>
+                                        <form action="./pages/destination.php">
+                                            <button id="button-destination">
+                                                <input type="submit" value="Select">
+                                            </button>
+                                            <input type="hidden" value="<?php echo $destination['id'] ?>">
+                                            <?php var_dump($destination['id']) ?>
+                                        </form>
+                                    </div>
+                                </div>
+                            <?php } ?>
                         </div>
-                    <?php foreach ($allDestinations as $destination) { ?>
-                        <form action="./process/add-destination.php">
-                                    <label for="location"><?php echo $destination['name'] ?></label>
-                                    <!-- <input type="text" id="location" name="location" /> -->
-                            <input type="submit" value="Valider">
-                        </form>
-                    <?php } ?>
 
                     </div>
                 </div>
