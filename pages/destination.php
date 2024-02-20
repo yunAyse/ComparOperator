@@ -21,7 +21,7 @@ $allDestinations = $destinationManagement->getAllDestinations();
 
 ?>
 
-<!DOCTYPE html>
+<!DOCTYPE html>  
 <html lang="en">
 <head>
   <meta charset="UTF-8">
