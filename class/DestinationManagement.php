@@ -22,16 +22,27 @@ class DestinationManagement
       $request->execute(
         // ['id' => $destination->getId()] 
       );
+      var_dump($destination->getLocation());
       return $request->fetch(); 
     }
 
-    public function getDestinationById(int $id) {
-      $request = $this->db->prepare("SELECT * FROM destination WHERE id = :id");
+
+    public function getDestinationByOperatorId(Destination $destination) {
+      $request = $this->db->prepare("SELECT * FROM destination WHERE tour_operator_id = :tour_operator_id");
+      $request->bindValue(':tour_operator_id', $destination->getTourOperator());
       $request->execute(
-        ['id' => $id] 
+        // ['id' => $destination->getId()] 
       );
       return $request->fetchAll(); 
     }
+
+    // public function getDestinationById(int $id) {
+    //   $request = $this->db->prepare("SELECT * FROM destination WHERE id = :id");
+    //   $request->execute(
+    //     ['id' => $id] 
+    //   );
+    //   return $request->fetchAll(); 
+    // }
 
   public function connectDestinationAndOperator(Destination $destination)
   {
