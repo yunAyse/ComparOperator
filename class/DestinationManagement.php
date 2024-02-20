@@ -25,6 +25,14 @@ class DestinationManagement
       return $request->fetch(); 
     }
 
+    public function getDestinationById(int $id) {
+      $request = $this->db->prepare("SELECT * FROM destination WHERE id = :id");
+      $request->execute(
+        ['id' => $id] 
+      );
+      return $request->fetchAll(); 
+    }
+
   public function connectDestinationAndOperator(Destination $destination)
   {
     $request = $this->db->prepare("SELECT * FROM tour_operator INNER JOIN destination ON tour_operator.id = :id ");
