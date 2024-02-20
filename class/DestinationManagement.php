@@ -12,7 +12,7 @@ class DestinationManagement
     public function getAllDestinations() {
       $request = $this->db->query("SELECT * FROM destination");
       $destinations = $request->fetchAll();
-  
+
       return $destinations;
     }
 
@@ -25,13 +25,13 @@ class DestinationManagement
       return $request->fetch(); 
     }
 
-    public function getDestinationById(int $id) {
-      $request = $this->db->prepare("SELECT * FROM destination WHERE id = :id");
-      $request->execute(
-        ['id' => $id] 
-      );
-      return $request->fetchAll(); 
-    }
+    // public function getDestinationById(int $id) {
+    //   $request = $this->db->prepare("SELECT * FROM destination WHERE id = :id");
+    //   $request->execute(
+    //     ['id' => $id] 
+    //   );
+    //   return $request->fetchAll(); 
+    // }
 
   public function connectDestinationAndOperator(Destination $destination)
   {

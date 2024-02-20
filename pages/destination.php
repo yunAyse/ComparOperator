@@ -11,9 +11,9 @@ require_once('../utils/database.php');
 // ]);
 // $destinationById = $destinationManagement->getDestinationById($destination
 $destinationManagement = new DestinationManagement($db);
-$idDestination = $destinationManagement->getDestinationById(intval($_POST['id']));
+$idDestination = $destinationManagement->getDestinationByLocation($_POST['the_location']);
 
-var_dump(intval($_POST['id'])); 
+var_dump($_POST['the__location']); 
 
 ?>
 
