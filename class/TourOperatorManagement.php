@@ -32,11 +32,11 @@ class TourOperatorManagement
 
     }
 
-    public function selectTourOperator($selectTourOperator) {
+    public function selectTourOperator(TourOperator $tourOperator) {
         $request = $this->db->prepare("SELECT location FROM tour_operator JOIN destination on tour_operator_id = destination.tour_operator_id");
         $request->execute([
-            'id' => $selectTourOperator->getId(),
-            'name' => $selectTourOperator
+            'id' => $tourOperator->getId(),
+            'name' => $tourOperator->getName()
         ]);
         $selectTourOperator = $request->fetchAll();
         var_dump($selectTourOperator);
