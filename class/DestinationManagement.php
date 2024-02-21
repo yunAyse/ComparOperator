@@ -16,6 +16,16 @@ class DestinationManagement
       return $destinations;
     }
 
+    public function getTheDestinations($location) {
+      $request = $this->db->prepare("SELECT * FROM destination WHERE location = :location");
+      $request->execute([
+        "location" => $location
+      ]);
+      $destination = $request->fetchAll();
+
+      return $destination;
+    }
+
     public function getDestinationByLocation($location) {
       $request = $this->db->prepare("SELECT * FROM destination WHERE location = :location");
       $request->bindValue(':location', $location);

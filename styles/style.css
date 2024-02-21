@@ -5,7 +5,17 @@
 }
 
 body {
+    background: #296ead;
+    z-index: -10;
+}
+
+section {
     background-image: url(../img/bg-tour-operator.webp);
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+img{
+    object-fit: cover;
+
 }

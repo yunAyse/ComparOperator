@@ -36,12 +36,11 @@ $allDestinations = $destinationManagement->getAllDestinations();
                     </div>
                     <div>
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
+                            <span class="navbar-toggler-icon" style="background-color: #fff; border-radius: 5px;"></span>
                         </button>
                         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                             <div class="navbar-nav fs-6">
                                 <a class="nav-link active text-light" aria-current="page" href="#">Home</a>
-                                <a class="nav-link text-light" href="./pages/destination.php">Destinations</a>
                                 <a class="nav-link text-light" href="./pages/operator.php">Tour Operators</a>
                             </div>
                         </div>
