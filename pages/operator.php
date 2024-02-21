@@ -3,7 +3,8 @@ require_once('../utils/autoload.php');
 require_once('../utils/database.php');
 
 $tourOperators = new TourOperatorManagement($db);
-$tourOperators = $tourOperators->getAllOperators();
+$getTourOperators = $tourOperators->getAllOperators();
+$selectTourOperators = $tourOperators->selectTourOperator($selectTourOperator);
 
 
 ?>
@@ -18,14 +19,20 @@ $tourOperators = $tourOperators->getAllOperators();
 </head>
 
 <body>
-    <h1>Operators</h1>
     <div class="d-flex justify-content-center">
-    <select name="select-operator" id="select-operator"><?php foreach ($tourOperators as $tourOperator) { ?><option value="<?php $tourOperator['name'] ?>">
-                <?php echo $tourOperator['name']; ?>
-            </option><?php }
-            var_dump($tourOperator['name']) ?>                                            
-    </select>
-</div>
+        <h1>Operators</h1>
+
+        <form action="../pages/operator.php" method="post">
+            <select name="select-operator" id="select-operator">
+                <?php foreach ($getTourOperators as $getTourOperator) { ?>
+                    <option value="<?php echo $getTourOperator['name']; ?>">
+                        <?php echo $getTourOperator['name']; ?>
+                    </option>
+                <?php } ?>
+            </select>
+            <input value="valider" type="submit">
+        </form>
+    </div>
 </body>
 
 </html>

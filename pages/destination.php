@@ -48,7 +48,7 @@ $OperatorsByLocation = $tourOperators->getOperatorLocation($_POST['the_location'
         <div class="card-body">
             <h5 class="card-title"><?php echo $destinationByLocation['location'] ?></h5>
             <p class="card-title"><?php foreach ($OperatorsByLocation as $operator) {
-              var_dump($operator);
+              // var_dump($operator);
               echo $operator['name'];
             } ?></p>
             <form action="./pages/destination.php" method="post">
