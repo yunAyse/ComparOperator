@@ -19,6 +19,11 @@ $destinationManagement = new DestinationManagement($db);
 $destinationManagement->getAllDestinations();
 $allDestinations = $destinationManagement->getAllDestinations();
 
+$tourOperators = new TourOperatorManagement($db);
+$AlltourOperators = $tourOperators->getAllOperators();
+
+$OperatorsByLocation = $tourOperators->getOperatorLocation($_POST['the_location']);
+
 ?>
 
 <!DOCTYPE html>  
@@ -43,6 +48,10 @@ $allDestinations = $destinationManagement->getAllDestinations();
         <img src="../img-destinations/<?php echo $destinationByLocation['location'] ?>.jpg" class="card-img-top" height="165rem;" alt="...">
         <div class="card-body">
             <h5 class="card-title"><?php echo $destinationByLocation['location'] ?></h5>
+            <p class="card-title"><?php foreach ($OperatorsByLocation as $operator) {
+              var_dump($operator);
+              echo $operator['name'];
+            } ?></p>
             <form action="./pages/destination.php" method="post">
                 <input type="submit" class="bg-info px-2 text-light border-0 rounded" value="Select">
                 <input type="hidden" name="the_location" value="<?php echo $destinationByLocation['location'] ?>">
