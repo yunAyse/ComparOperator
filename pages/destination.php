@@ -37,8 +37,7 @@ $allDestinations = $destinationManagement->getAllDestinations();
     <div class="d-flex flex-column justify-content-center pt-5">
     <div class="d-flex flex-wrap justify-content-evenly gap-4 pt-5">
 
-<?php foreach ($destinationsByLocation as $destinationByLocation) {
-  var_dump($destinationByLocation) ?>
+<?php foreach ($destinationsByLocation as $destinationByLocation) { ?>
     <div class="card" style="width: 18rem;">
         <img src="../img-destinations/<?php echo $destinationByLocation['location'] ?>.jpg" class="card-img-top" height="165rem;" alt="...">
         <div class="card-body">

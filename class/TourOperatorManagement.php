@@ -22,6 +22,7 @@ class TourOperatorManagement
 
     }
 
+
     public function createTourOperator(TourOperator $tourOperator){
 
         $request = $this->db->prepare("INSERT INTO tour_operator (name, link, grade_count, grade_total, is_premium) VALUES (:name, :link, :grade_count, :grade_total, :is_premium)");
