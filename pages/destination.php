@@ -35,22 +35,22 @@ $allDestinations = $destinationManagement->getAllDestinations();
   <div class="container vh-100">
 <div class="row">
     <div class="d-flex flex-column justify-content-center pt-5">
-        <div class="d-flex flex-wrap justify-content-evenly gap-4 pt-5">
+    <div class="d-flex flex-wrap justify-content-evenly gap-4 pt-5">
 
-            <?php foreach ($destinationsByLocation as $destinationByLocation) { ?>
-                <div class="card" style="width: 18rem;">
-                    <img src="../img-destinations/<?php echo $destination['location'] ?>.jpg" class="card-img-top" height="165rem;" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title"><?php echo $destination['location'] ?></h5>
-                        <form action="./pages/destination.php" method="post">
-                            <input type="submit" class="bg-info px-2 text-light border-0 rounded" value="Select">
-                            <input type="hidden" name="the_location" value="<?php echo $destination['location'] ?>">
-                        </form>
-                    </div>
-                </div>
-            <?php } ?>
+<?php foreach ($destinationsByLocation as $destinationByLocation) {
+  var_dump($destinationByLocation) ?>
+    <div class="card" style="width: 18rem;">
+        <img src="../img-destinations/<?php echo $destinationByLocation['location'] ?>.jpg" class="card-img-top" height="165rem;" alt="...">
+        <div class="card-body">
+            <h5 class="card-title"><?php echo $destinationByLocation['location'] ?></h5>
+            <form action="./pages/destination.php" method="post">
+                <input type="submit" class="bg-info px-2 text-light border-0 rounded" value="Select">
+                <input type="hidden" name="the_location" value="<?php echo $destinationByLocation['location'] ?>">
+            </form>
         </div>
-
+    </div>
+<?php } ?>
+</div>
     </div>
 </div>
 </div>
