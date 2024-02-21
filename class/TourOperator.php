@@ -14,9 +14,15 @@ class TourOperator
         if(isset($data['id'])){
             $this->id = $data['id'];
          }
-         $this->name = $data['name_operator'];
-         $this->link = $data['link_operator'];
-         $this->isPremium = $data['is_premium'];
+         $this->name = $data['name'];
+
+         if(isset($data['link'])) {
+             $this->link = $data['link'];
+         }
+
+         if(isset($data['is_premium'])) {
+             $this->isPremium = $data['is_premium'];
+        }
     }
 
 

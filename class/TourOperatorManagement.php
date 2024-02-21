@@ -11,8 +11,8 @@ class TourOperatorManagement
     public function getAllOperators(){
         
         $request = $this->db->query("SELECT * FROM tour_operator");
-        $tourOperators = $request->fetchAll();
-        return $tourOperators;
+        return $this->hydrate($request->fetchAll());
+      
 
 
         // $request = $this->db->prepare('SELECT * FROM tour_operator');
@@ -28,19 +28,18 @@ class TourOperatorManagement
             'location' => $location
         ]);
         $operatorLocation = $request->fetchAll();
-        return $operatorLocation; 
+        return $this->hydrate($operatorLocation); 
 
     }
 
-    public function selectTourOperator($selectTourOperator) {
-        $request = $this->db->prepare("SELECT location FROM tour_operator JOIN destination on tour_operator_id = destination.tour_operator_id");
+    public function selectTourOperator(TourOperator $tourOperator) {
+        $request = $this->db->prepare("SELECT * FROM tour_operator JOIN destination ON tour_operator_id = destination.tour_operator_id WHERE tour_operator.name = :name ");
         $request->execute([
-            'id' => $selectTourOperator->getId(),
-            'name' => $selectTourOperator
+            'name' => $tourOperator->getName()
         ]);
         $selectTourOperator = $request->fetchAll();
-        var_dump($selectTourOperator);
-        return $selectTourOperator; 
+        // var_dump($selectTourOperator);
+        return $this->hydrate($selectTourOperator) ; 
 
     }
 
@@ -61,7 +60,7 @@ class TourOperatorManagement
         {
             $operators = [];
             foreach ($data as $operator) {
-                var_dump($operator);
+                // var_dump($operator);
                 $operators[] = new TourOperator($operator);
             }
             return $operators;

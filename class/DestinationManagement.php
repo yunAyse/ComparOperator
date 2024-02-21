@@ -13,7 +13,7 @@ class DestinationManagement
       $request = $this->db->query("SELECT * FROM destination");
       $destinations = $request->fetchAll();
 
-      return $destinations;
+      return $this->hydrate( $destinations);
     }
 
     public function getTheDestinations($location) {
@@ -23,7 +23,7 @@ class DestinationManagement
       ]);
       $destination = $request->fetch();
 
-      return $destination;
+      return $this->hydrateOne($destination);
     }
 
     public function getDestinationByLocation($location) {
@@ -32,7 +32,7 @@ class DestinationManagement
       $request->execute(
         // ['id' => $destination->getId()] 
       );
-      return $request->fetch(); 
+      return $this->hydrateOne($request->fetch()); 
     }
 
 
@@ -42,7 +42,7 @@ class DestinationManagement
       $request->execute(
         // ['id' => $destination->getId()] 
       );
-      return $request->fetchAll(); 
+      return $this->hydrate($request->fetchAll());  
     }
 
   public function connectDestinationAndOperator(Destination $destination)
@@ -71,9 +71,13 @@ class DestinationManagement
     {
         $destinations = [];
         foreach ($data as $destination) {
-            var_dump($destination);
-            $destinations[] = new TourOperator($destination);
+            // var_dump($destination);
+            $destinations[] = new Destination($destination);
         }
         return $destinations;
+    }
+
+    public function hydrateOne($data) {
+      return new Destination($data);
     }
 }

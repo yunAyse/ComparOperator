@@ -4,7 +4,11 @@ require_once('../utils/database.php');
 
 $tourOperators = new TourOperatorManagement($db);
 $getTourOperators = $tourOperators->getAllOperators();
-$selectTourOperators = $tourOperators->selectTourOperator($selectTourOperator);
+var_dump($getTourOperators);
+
+// $operators = new TourOperator($tourOperators->hydrate($getTourOperators));
+// $selectTourOperators = $tourOperators->selectTourOperator($operators);
+// var_dump($selectTourOperators);
 
 
 ?>

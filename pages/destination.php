@@ -8,15 +8,14 @@ $_SESSION['location'] = $_POST['the_location'];
 $destinationManagement = new DestinationManagement($db);
 $destinationsByLocation = $destinationManagement->getDestinationByLocation($_SESSION['location']);
 
-
-$destinationManagement = new DestinationManagement($db);
-$destinationManagement->getAllDestinations();
-$allDestinations = $destinationManagement->getAllDestinations();
+// $destinationManagement->getAllDestinations();
+// $allDestinations = $destinationManagement->getAllDestinations();
 
 $tourOperators = new TourOperatorManagement($db);
-$AlltourOperators = $tourOperators->getAllOperators();
+$allTourOperators = $tourOperators->getAllOperators();
 
-$OperatorsByLocation = $tourOperators->getOperatorLocation($_SESSION['location']);
+$operatorsByLocation = $tourOperators->getOperatorLocation($_SESSION['location']);
+
 
 ?>
 
@@ -60,21 +59,22 @@ $OperatorsByLocation = $tourOperators->getOperatorLocation($_SESSION['location']
         <div class="d-flex flex-column justify-content-center pt-5">
           <div class="d-flex flex-wrap justify-content-evenly gap-4 pt-5">
 
-          <?php foreach ($OperatorsByLocation as $operator) { ?>
+            <?php foreach ($operatorsByLocation as $operator) { ?>
               <div class="card" style="width: 18rem;">
-                <img src="../img-destinations/<?php echo $destinationsByLocation['location'] ?>.jpg" class="card-img-top" height="165rem;" alt="...">
+                <img src="../img-destinations/<?php echo $destinationsByLocation->getLocation() ?>.jpg" class="card-img-top" height="165rem;" alt="...">
                 <div class="card-body">
-                  <h5 class="card-title fs-4"><?php echo $destinationsByLocation['location'] ?></h5>
+                  <h5 class="card-title fs-4"><?php echo $destinationsByLocation->getLocation() ?></h5>
                   <div class="d-flex justify-content-between">
                     <p class="card-text">
-                      <?php 
-                        echo $operator['name']; ?>
-                     
-                    <p class="card-text fw-bold"><?php echo $destinationsByLocation['price'] ?>$</p>
+                      <?php
+                      echo $operator->getName(); ?>
+
+                    <p class="card-text fw-bold"><?php echo $destinationsByLocation->getPrice() ?>$</p>
                   </div>
                   <form action="./operator.php" method="post">
                     <input type="submit" class="bg-info px-2 text-light border-0 rounded" value="Select">
-                    <input type="hidden" name="the_location" value="<?php echo $destinationsByLocation['location'] ?>">
+                    <input type="hidden" name="the_location" value="<?php echo $destinationsByLocation->getLocation() ?>">
+                    <input type="hidden" name="name_operator" value="<?php echo $operator->getName() ?>">
 
                   </form>
                 </div>

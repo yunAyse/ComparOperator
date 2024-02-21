@@ -57,12 +57,12 @@ $allDestinations = $destinationManagement->getAllDestinations();
 
                             <?php foreach ($allDestinations as $destination) { ?>
                                 <div class="card" style="width: 18rem;">
-                                    <img src="./img-destinations/<?php echo $destination['location'] ?>.jpg" class="card-img-top" height="165rem;" alt="...">
+                                    <img src="./img-destinations/<?php echo $destination->getLocation() ?>.jpg" class="card-img-top" height="165rem;" alt="...">
                                     <div class="card-body">
-                                        <h5 class="card-title"><?php echo $destination['location'] ?></h5>
+                                        <h5 class="card-title"><?php echo $destination->getLocation() ?></h5>
                                         <form action="./pages/destination.php" method="post">
                                             <input type="submit" class="bg-info px-2 text-light border-0 rounded" value="Select">
-                                            <input type="hidden" name="the_location" value="<?php echo $destination['location'] ?>">
+                                            <input type="hidden" name="the_location" value="<?php echo $destination->getLocation() ?>">
                                         </form>
                                     </div>
                                 </div>

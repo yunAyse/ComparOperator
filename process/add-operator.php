@@ -9,8 +9,8 @@ if (
             isset($_POST['is_premium']) && !empty($_POST['is_premium']) 
         ) {
             $tourOperator = new TourOperator([
-                'name_operator'=> $_POST['name_operator'],
-                'link_operator'=> $_POST['link_operator'],
+                'name'=> $_POST['name_operator'],
+                'link'=> $_POST['link_operator'],
                 'is_premium'=>$_POST['is_premium']
             ]);
             $tourOperatorManagement = new TourOperatorManagement($db);
