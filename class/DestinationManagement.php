@@ -16,13 +16,23 @@ class DestinationManagement
       return $destinations;
     }
 
+    public function getTheDestinations($location) {
+      $request = $this->db->prepare("SELECT * FROM destination WHERE location = :location");
+      $request->execute([
+        "location" => $location
+      ]);
+      $destination = $request->fetch();
+
+      return $destination;
+    }
+
     public function getDestinationByLocation($location) {
       $request = $this->db->prepare("SELECT * FROM destination WHERE location = :location");
       $request->bindValue(':location', $location);
       $request->execute(
         // ['id' => $destination->getId()] 
       );
-      return $request->fetchAll(); 
+      return $request->fetch(); 
     }
 
 
@@ -34,14 +44,6 @@ class DestinationManagement
       );
       return $request->fetchAll(); 
     }
-
-    // public function getDestinationById(int $id) {
-    //   $request = $this->db->prepare("SELECT * FROM destination WHERE id = :id");
-    //   $request->execute(
-    //     ['id' => $id] 
-    //   );
-    //   return $request->fetchAll(); 
-    // }
 
   public function connectDestinationAndOperator(Destination $destination)
   {
@@ -64,4 +66,14 @@ class DestinationManagement
       'tour_operator_id' => $destination->getTourOperator()
     ]);
   }
+
+  public function hydrate(array $data)
+    {
+        $destinations = [];
+        foreach ($data as $destination) {
+            var_dump($destination);
+            $destinations[] = new TourOperator($destination);
+        }
+        return $destinations;
+    }
 }
