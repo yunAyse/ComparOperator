@@ -32,7 +32,7 @@ $allDestinations = $destinationManagement->getAllDestinations();
                 <div class="container-fluid d-flex justify-content-between">
                     <div class="d-flex align-items-center gap-2">
                         <img src="./img/mountain.png" alt="mountain-icon">
-                        <a class="navbar-brand fs-1 fw-bold text-light" href="#">Montis Nivei</a>
+                        <a class="navbar-brand fs-1 fw-bold text-light" href="./index.php">Montis Nivei</a>
                     </div>
                     <div>
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
