@@ -3,7 +3,8 @@ require_once('../utils/autoload.php');
 require_once('../utils/database.php');
 
 $tourOperators = new TourOperatorManagement($db);
-$tourOperators = $tourOperators->getAllOperators();
+$getTourOperators = $tourOperators->getAllOperators();
+$selectTourOperators = $tourOperators->selectTourOperator($selectTourOperator);
 
 
 ?>

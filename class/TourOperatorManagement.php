@@ -32,6 +32,18 @@ class TourOperatorManagement
 
     }
 
+    public function selectTourOperator($selectTourOperator) {
+        $request = $this->db->prepare("SELECT location FROM tour_operator JOIN destination on tour_operator_id = destination.tour_operator_id");
+        $request->execute([
+            'id' => $selectTourOperator->getId(),
+            'name' => $selectTourOperator
+        ]);
+        $selectTourOperator = $request->fetchAll();
+        var_dump($selectTourOperator);
+        return $selectTourOperator; 
+
+    }
+
     public function createTourOperator(TourOperator $tourOperator){
 
         $request = $this->db->prepare("INSERT INTO tour_operator (name, link, grade_count, grade_total, is_premium) VALUES (:name, :link, :grade_count, :grade_total, :is_premium)");
