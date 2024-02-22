@@ -8,8 +8,9 @@ if (
    
         ) {
             $tourOperator = new TourOperator([
+                
                 'name_operator'=> $_POST['name_operator'],
-             
+
             ]);
             $tourOperatorManagement = new TourOperatorManagement($db);
             $selectOperator->selectTourOperator($selectOperator);

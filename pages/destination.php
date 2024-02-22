@@ -7,7 +7,7 @@ $_SESSION['location'] = $_POST['the_location'];
 
 $destinationManagement = new DestinationManagement($db);
 $destinationsByLocation = $destinationManagement->getDestinationByLocation($_SESSION['location']);
-
+// var_dump($destinationsByLocation);
 // $destinationManagement->getAllDestinations();
 // $allDestinations = $destinationManagement->getAllDestinations();
 
