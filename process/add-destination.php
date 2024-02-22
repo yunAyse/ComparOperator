@@ -12,7 +12,7 @@ if (
     
     $destination = new Destination([
         'location' => $_POST['location'],
-        'operator_id' => intval($_POST['operator_id']),
+        'tour_operator_id' => intval($_POST['operator_id']),
         'price'=> $_POST['price']
     ]);
     // var_dump(intval($_POST['operator_id']));

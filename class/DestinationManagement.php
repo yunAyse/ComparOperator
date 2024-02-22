@@ -42,7 +42,7 @@ class DestinationManagement
       $request->execute(
         // ['id' => $destination->getId()] 
       );
-      return $this->hydrate($request->fetchAll());  
+      return $request->fetchAll();  
     }
 
   public function connectDestinationAndOperator(Destination $destination)
