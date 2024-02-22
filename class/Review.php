@@ -7,9 +7,22 @@ class Review
     private string $author;
     private $tourOperator;
 
-    public function __construct($db)
+    public function __construct($data)
     {
-        
+        if(isset($data['id'])){
+            $this->id = $data['id'];
+         }
+         if (isset($data['message'])) {
+             $this->message = $data['message'];
+         }
+
+         if(isset($data['author'])) {
+             $this->author = $data['author'];
+         }
+
+         if(isset($data['tour_operator'])) {
+             $this->tourOperator = $data['tour_operator'];
+        }
     }
 
     /**
