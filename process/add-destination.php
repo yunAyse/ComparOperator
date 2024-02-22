@@ -15,12 +15,9 @@ if (
         'tour_operator_id' => intval($_POST['operator_id']),
         'price'=> $_POST['price']
     ]);
-    // var_dump(intval($_POST['operator_id']));
     
         $destinationManagement = new DestinationManagement($db);
         $theDestinations = $destinationManagement->getDestinationByOperatorId($destination);
-        // var_dump(in_array($destination->getLocation(), $theDestination[1]));
-        // var_dump($destination->getLocation());
 
         $findDestination = false;
 

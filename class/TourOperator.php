@@ -14,7 +14,9 @@ class TourOperator
         if(isset($data['id'])){
             $this->id = $data['id'];
          }
-         $this->name = $data['name'];
+         if (isset($data['name'])) {
+             $this->name = $data['name'];
+         }
 
          if(isset($data['link'])) {
              $this->link = $data['link'];
