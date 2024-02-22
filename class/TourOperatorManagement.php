@@ -58,9 +58,9 @@ class TourOperatorManagement
     
     public function hydrate(array $data)
         {
-            echo "<pre>";
-            var_dump($data);
-            echo "</pre>";
+            // echo "<pre>";
+            // var_dump($data);
+            // echo "</pre>";
             $operators = [];
             foreach ($data as $operator) {
                 // var_dump($operator);
