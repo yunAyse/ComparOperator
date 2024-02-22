@@ -66,10 +66,8 @@ echo  "</pre>";
                 <div class="card-body">
                   <div class="d-flex justify-content-between">
                   <h5 class="card-title fs-4"><?php  echo $operator->getName(); ?></h5>
-                    <p class="card-text fw-bold"><?php 
-                    foreach($destinationsByLocation as $destinationByLocation)
-                     {
-                      echo $destinationByLocation->getPrice();} 
+                    <p class="card-text fw-bold"><?php                  
+                      echo $destinationsByLocation->getPrice(); 
                       ?>$</p>
                   </div>
                   <form action="./operator.php" method="post">
