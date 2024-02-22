@@ -4,7 +4,7 @@ require_once('../utils/database.php');
 
 $_SESSION['operator'] = $_POST['name_operator'];
 $review = new ReviewManagement($db);
-
+$_SESSION['operator_id'] = $_POST['operator_id'];
 $getAllReview = $review->getAllReview($_POST['operator_id']);
 
 // echo '<pre>';
@@ -51,32 +51,46 @@ $getAllReview = $review->getAllReview($_POST['operator_id']);
             </div>
         </nav>
     </header>
-
-    <section id="operator" style="min-height: 100vh;">
-        <div class="container d-flex flex-column align-items-center p-5">
-            <h1 class="text-light px-4 py-2 rounded" style="text-transform: uppercase; background-color: #00000049"><?php echo $_SESSION['operator'] ?></h1>
-            <div class="d-flex justify-content-center">
-
-            <div class="container vh-100">
-                <div class="row">
-                    <div class="d-flex flex-column justify-content-center pt-5">
-                        <div class="d-flex flex-wrap justify-content-evenly gap-4 pt-5">
-                        <?php foreach ($getAllReview as $review) { ?>
-                                <div class="card" style="width: 18rem;">
-                                    <div class="card-body">
-                                        <h5><?php echo $review->getAuthor() ?></h5>
-                                        <p class="card-title"><?php echo $review->getMessage() ?></p>
-                                    </div>
+    <main>
+        <section id="operator" style="min-height: 100vh;">
+            <div class="container d-flex flex-column align-items-center p-5">
+                <h1 class="text-light px-4 py-2 rounded" style="text-transform: uppercase; background-color: #00000049"><?php echo $_SESSION['operator'] ?></h1>
+                <div class="container vh-100">
+                    <div class="row">
+                        <div id="form">
+                            <form action="../process/add-review.php" method="post">
+                                <div class="mb-3">
+                                    <label for="author" class="form-label">Name</label>
+                                    <input type="text" class="form-control" name="author">
                                 </div>
-                            <?php } ?>
-                           
+                                <div class="mb-3">
+                                    <label for="message" class="form-label">Message</label>
+                                    <input type="text" class="form-control" name="message">
+                                </div>
+                                <input type="hidden" value="<?php $_SESSION['operator_id'] ?>">
+                                <input type="submit" value="Send">
+                            </form>
                         </div>
-
+                        <div class="d-flex flex-column align-items-end justify-content-end pt-5">
+                            <div class="card" style="width: 18rem;">
+                                <div class="card-header">
+                                    <h3>Reviews</h3>
+                                </div>
+                                <?php foreach ($getAllReview as $review) { ?>
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item">
+                                            <h5><?php echo $review->getAuthor() ?></h5>
+                                            <p class="card-title"><?php echo $review->getMessage() ?></p>
+                                        </li>
+                                    </ul>
+                                <?php } ?>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>

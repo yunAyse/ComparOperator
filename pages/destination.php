@@ -10,7 +10,6 @@ $destinationsByLocation = $destinationManagement->getDestinationByLocation($_SES
 $tourOperators = new TourOperatorManagement($db);
 
 $operatorsByLocation = $tourOperators->getOperatorLocation($_SESSION['location']);
-
 ?>
 
 <!DOCTYPE html>
@@ -52,7 +51,10 @@ $operatorsByLocation = $tourOperators->getOperatorLocation($_SESSION['location']
     <div class="container vh-100">
       <div class="row">
         <div class="d-flex flex-column align-items-center justify-content-center pt-5">
-          <h1 class="text-light px-4 py-2 rounded" style="text-transform: uppercase; background-color: #00000049"><?php echo $destinationsByLocation->getLocation() ?></h1>
+
+          <h1 class="text-light px-4 py-2 rounded" style="text-transform: uppercase; background-color: #00000049">
+          <?php echo $destinationsByLocation->getLocation() ?></h1>
+
           <div class="d-flex flex-wrap justify-content-evenly gap-4 pt-5">
             <?php foreach ($operatorsByLocation as $operator) { ?>
               <div class="card" style="width: 18rem;">
