@@ -3,6 +3,14 @@ require_once('../utils/autoload.php');
 require_once('../utils/database.php');
 
 $_SESSION['operator'] = $_POST['name_operator'];
+$review = new ReviewManagement($db);
+
+$getAllReview = $review->getAllReview($_POST['operator_id']);
+
+// echo '<pre>';
+// var_dump($getAllReview);
+// echo '</pre>';
+// var_dump($getTourOperators);
 
 
 
@@ -49,7 +57,32 @@ $_SESSION['operator'] = $_POST['name_operator'];
             <h1 class="text-light px-4 py-2 rounded" style="text-transform: uppercase; background-color: #00000049"><?php echo $_SESSION['operator'] ?></h1>
             <div class="d-flex justify-content-center">
 
+        <div class="container">
+            <h1>Operators</h1>
+            <section id="accueil">
+            <div class="container vh-100">
+                <div class="row">
+                    <div class="d-flex flex-column justify-content-center pt-5">
+                        <div class="d-flex flex-wrap justify-content-evenly gap-4 pt-5">
+                        <?php foreach ($getAllReview as $review) { ?>
+                                <div class="card" style="width: 18rem;">
+                                    <div class="card-body">
+                                        <h1><?php echo $review->getMessage() ?></h1>
+                                        <h5 class="card-title"><?php echo $review->getMessage() ?></h5>
+                                        <form action="./pages/destination.php" method="post">
+                                            <input type="submit" class="bg-info px-2 text-light border-0 rounded" value="Select">
+                                            <input type="hidden" name="the_location" value="<?php echo $review->getMessage() ?>">
+                                        </form>
+                                    </div>
+                                </div>
+                            <?php } ?>
+                           
+                        </div>
+
+                    </div>
+                </div>
             </div>
+        </section>
         </div>
     </section>
 

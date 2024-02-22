@@ -12,11 +12,11 @@ $destinationsByLocation = $destinationManagement->getDestinationByLocation($_SES
 // $allDestinations = $destinationManagement->getAllDestinations();
 
 $tourOperators = new TourOperatorManagement($db);
-$allTourOperators = $tourOperators->getAllOperators();
 
 $operatorsByLocation = $tourOperators->getOperatorLocation($_SESSION['location']);
-
-
+echo "<pre>";
+var_dump($operatorsByLocation);
+echo  "</pre>";
 ?>
 
 <!DOCTYPE html>
@@ -66,18 +66,17 @@ $operatorsByLocation = $tourOperators->getOperatorLocation($_SESSION['location']
                 <div class="card-body">
                   <div class="d-flex justify-content-between">
                   <h5 class="card-title fs-4"><?php  echo $operator->getName(); ?></h5>
-                    <p class="card-text fw-bold"><?php var_dump($destinationsByLocation); 
+                    <p class="card-text fw-bold"><?php 
                     foreach($destinationsByLocation as $destinationByLocation)
                      {
                       echo $destinationByLocation->getPrice();} 
                       ?>$</p>
                   </div>
-                  <form action="../process/show-review.php" method="post">
+                  <form action="./operator.php" method="post">
                     <input type="submit" class="bg-info px-2 text-light border-0 rounded" value="Select">
-
-                    <!-- <input type="hidden" name="the_location" value="php echo $destinationsByLocation->getLocation() ? "> -->
+                    <input type="hidden" name="the_location" value="<?php echo $destinationsByLocation->getLocation() ?>">
                     <input type="hidden" name="name_operator" value="<?php echo $operator->getName() ?>">
-                    <input type="hidden" name="operator_id" value="<?php echo $operator->getId() ?>" >
+                    <input type="hidden" name="operator_id" value="<?php echo $operator->getId() ?>">
 
                   </form>
                 </div>

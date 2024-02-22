@@ -23,7 +23,7 @@ class TourOperatorManagement
     }
 
     public function getOperatorLocation($location) {
-        $request = $this->db->prepare("SELECT DISTINCT destination.id, tour_operator.id, tour_operator.name FROM tour_operator JOIN destination ON tour_operator.id = destination.tour_operator_id WHERE destination.location = :location");
+        $request = $this->db->prepare("SELECT DISTINCT tour_operator.id, tour_operator.name FROM tour_operator JOIN destination ON tour_operator.id = destination.tour_operator_id WHERE destination.location = :location");
         $request->execute([
             'location' => $location
         ]);
@@ -58,6 +58,9 @@ class TourOperatorManagement
     
     public function hydrate(array $data)
         {
+            echo "<pre>";
+            var_dump($data);
+            echo "</pre>";
             $operators = [];
             foreach ($data as $operator) {
                 // var_dump($operator);
