@@ -7,7 +7,7 @@ $_SESSION['location'] = $_POST['the_location'];
 
 $destinationManagement = new DestinationManagement($db);
 $destinationsByLocation = $destinationManagement->getDestinationByLocation($_SESSION['location']);
-
+// var_dump($destinationsByLocation);
 // $destinationManagement->getAllDestinations();
 // $allDestinations = $destinationManagement->getAllDestinations();
 
@@ -58,16 +58,16 @@ $operatorsByLocation = $tourOperators->getOperatorLocation($_SESSION['location']
       <div class="row">
         <div class="d-flex flex-column justify-content-center pt-5">
           <div class="d-flex flex-wrap justify-content-evenly gap-4 pt-5">
-
+          <h1><?php echo $destinationsByLocation->getLocation() ?></h1>
             <?php foreach ($operatorsByLocation as $operator) { ?>
               <div class="card" style="width: 18rem;">
                 <img src="../img-destinations/<?php echo $destinationsByLocation->getLocation() ?>.jpg" class="card-img-top" height="165rem;" alt="...">
                 <div class="card-body">
-                  <h5 class="card-title fs-4"><?php echo $destinationsByLocation->getLocation() ?></h5>
+                  <h5 class="card-title fs-4"> <?php
+                      echo $operator->getName(); ?></h5>
                   <div class="d-flex justify-content-between">
                     <p class="card-text">
-                      <?php
-                      echo $operator->getName(); ?>
+                     
 
                     <p class="card-text fw-bold"><?php echo $destinationsByLocation->getPrice() ?>$</p>
                   </div>
