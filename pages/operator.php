@@ -2,13 +2,8 @@
 require_once('../utils/autoload.php');
 require_once('../utils/database.php');
 
-$tourOperators = new TourOperatorManagement($db);
-$getTourOperators = $tourOperators->getAllOperators();
-// var_dump($getTourOperators);
+$_SESSION['operator'] = $_POST['name_operator'];
 
-// $operators = new TourOperator($tourOperators->hydrate($getTourOperators));
-// $selectTourOperators = $tourOperators->selectTourOperator($operators);
-// var_dump($selectTourOperators);
 
 
 ?>
@@ -48,11 +43,12 @@ $getTourOperators = $tourOperators->getAllOperators();
             </div>
         </nav>
     </header>
+
     <section id="operator" style="min-height: 100vh;">
-        <div class="container">
-            <h1>Operators</h1>
+        <div class="container d-flex flex-column align-items-center p-5">
+            <h1 class="text-light px-4 py-2 rounded" style="text-transform: uppercase; background-color: #00000049"><?php echo $_SESSION['operator'] ?></h1>
             <div class="d-flex justify-content-center">
-                
+
             </div>
         </div>
     </section>

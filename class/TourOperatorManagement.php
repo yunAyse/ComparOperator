@@ -23,7 +23,7 @@ class TourOperatorManagement
     }
 
     public function getOperatorLocation($location) {
-        $request = $this->db->prepare("SELECT DISTINCT destination.id, tour_operator.name FROM tour_operator JOIN destination ON tour_operator.id = destination.tour_operator_id WHERE destination.location = :location");
+        $request = $this->db->prepare("SELECT DISTINCT destination.id, tour_operator.id, tour_operator.name FROM tour_operator JOIN destination ON tour_operator.id = destination.tour_operator_id WHERE destination.location = :location");
         $request->execute([
             'location' => $location
         ]);

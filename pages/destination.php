@@ -72,10 +72,12 @@ $operatorsByLocation = $tourOperators->getOperatorLocation($_SESSION['location']
                       echo $destinationByLocation->getPrice();} 
                       ?>$</p>
                   </div>
-                  <form action="./operator.php" method="post">
+                  <form action="../process/show-review.php" method="post">
                     <input type="submit" class="bg-info px-2 text-light border-0 rounded" value="Select">
-                    <input type="hidden" name="the_location" value="<?php echo $destinationsByLocation->getLocation() ?>">
+
+                    <!-- <input type="hidden" name="the_location" value="php echo $destinationsByLocation->getLocation() ? "> -->
                     <input type="hidden" name="name_operator" value="<?php echo $operator->getName() ?>">
+                    <input type="hidden" name="operator_id" value="<?php echo $operator->getId() ?>" >
 
                   </form>
                 </div>
