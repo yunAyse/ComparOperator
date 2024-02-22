@@ -8,6 +8,7 @@ class ReviewManagement
         $this->db = $db;
     }
 
+
     public function getAllReview($id){
         $request = $this->db->prepare("SELECT * FROM review WHERE tour_operator_id = :tour_operator_id");
         $request->execute([
@@ -15,6 +16,24 @@ class ReviewManagement
         
        ]);
         return  $this->hydrate($request->fetchAll());
+    }
+
+    public function createReview(Review $review) {
+      $request = $this->db->prepare("INSERT INTO review (message, author, tour_operator_id) VALUES (:message, :author, :tour_operator_id)");
+      $request->execute([
+        'message' => $review->getMessage(),
+        'author' => $review->getAuthor(),
+        'tour_operator_id' => $review->getTourOperator()
+      ]);
+    }
+
+    public function operatorByReview(Review $review) {
+      $request = $this->db->prepare("SELECT tour_operator_id FROM review WHERE tour_operator_id = :id");
+      $request->bindValue(':id', $review->getTourOperator());
+      $request->execute([
+        // 'id' => $review->getTourOperator(),
+      ]);
+      return $request->fetchAll();
     }
 
     public function hydrate(array $data){
