@@ -18,7 +18,7 @@ class ReviewManagement
         return  $this->hydrate($request->fetchAll());
     }
 
-    public function createReview(Review $review) {
+    public function createReview($review) {
       $request = $this->db->prepare("INSERT INTO review (message, author, tour_operator_id) VALUES (:message, :author, :tour_operator_id)");
       $request->execute([
         'message' => $review->getMessage(),
@@ -29,9 +29,8 @@ class ReviewManagement
 
     public function operatorByReview(Review $review) {
       $request = $this->db->prepare("SELECT tour_operator_id FROM review WHERE tour_operator_id = :id");
-      $request->bindValue(':id', $review->getTourOperator());
       $request->execute([
-        // 'id' => $review->getTourOperator(),
+        'id' => $review->getTourOperator(),
       ]);
       return $request->fetchAll();
     }

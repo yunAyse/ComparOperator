@@ -1,11 +1,16 @@
 <?php
 require_once('../utils/autoload.php');
 require_once('../utils/database.php');
+session_start();
 
-$_SESSION['operator'] = $_POST['name_operator'];
+if (isset($_POST['name_operator']) && isset($_POST['operator_id'])) {
+    $_SESSION['operator_id'] = $_POST['operator_id'];
+    $_SESSION['operator'] = $_POST['name_operator'];
+} 
+
 $review = new ReviewManagement($db);
-$_SESSION['operator_id'] = $_POST['operator_id'];
-$getAllReview = $review->getAllReview($_POST['operator_id']);
+$getAllReview = $review->getAllReview($_SESSION['operator_id']);
+
 
 // echo '<pre>';
 // var_dump($getAllReview);
@@ -61,13 +66,13 @@ $getAllReview = $review->getAllReview($_POST['operator_id']);
                             <form action="../process/add-review.php" method="post">
                                 <div class="mb-3">
                                     <label for="author" class="form-label">Name</label>
-                                    <input type="text" class="form-control" name="author">
+                                    <input type="text" placeholder="who is thinking this way?" class="form-control" name="author">
                                 </div>
                                 <div class="mb-3">
                                     <label for="message" class="form-label">Message</label>
-                                    <input type="text" class="form-control" name="message">
+                                    <textarea class="form-control" name="message"> </textarea>
                                 </div>
-                                <input type="hidden" value="<?php $_SESSION['operator_id'] ?>">
+                                <input type="hidden" value="<?php echo $_SESSION['operator_id'] ?>">
                                 <input type="submit" value="Send">
                             </form>
                         </div>

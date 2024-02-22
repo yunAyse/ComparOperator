@@ -1,7 +1,7 @@
 <?php
 require_once('../utils/autoload.php');
 require_once('../utils/database.php');
-
+session_start();
 $_SESSION['location'] = $_POST['the_location'];
 
 $destinationManagement = new DestinationManagement($db);
