@@ -1,22 +1,16 @@
 <?php
 require_once('../utils/autoload.php');
 require_once('../utils/database.php');
-// $destinationById = $destinationManagement->getDestinationById($destination);
 
 $_SESSION['location'] = $_POST['the_location'];
 
 $destinationManagement = new DestinationManagement($db);
 $destinationsByLocation = $destinationManagement->getDestinationByLocation($_SESSION['location']);
-// var_dump($destinationsByLocation);
-// $destinationManagement->getAllDestinations();
-// $allDestinations = $destinationManagement->getAllDestinations();
 
 $tourOperators = new TourOperatorManagement($db);
 
 $operatorsByLocation = $tourOperators->getOperatorLocation($_SESSION['location']);
-echo "<pre>";
-var_dump($operatorsByLocation);
-echo  "</pre>";
+
 ?>
 
 <!DOCTYPE html>

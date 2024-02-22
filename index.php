@@ -10,7 +10,6 @@ $destinationManagement = new DestinationManagement($db);
 $destinationManagement->getAllDestinations();
 $allDestinations = $destinationManagement->getAllDestinations();
 
-// var_dump($allDestinations);
 ?>
 
 <!DOCTYPE html>

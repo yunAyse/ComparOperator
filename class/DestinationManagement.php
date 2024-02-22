@@ -52,7 +52,6 @@ class DestinationManagement
       'id' => $destination->getId()
     ]);
     $destination = $request->fetchAll();
-    // var_dump($destination);
     return $destination;
   }
 
@@ -71,7 +70,6 @@ class DestinationManagement
     {
         $destinations = [];
         foreach ($data as $destination) {
-            // var_dump($destination);
             $destinations[] = new Destination($destination);
         }
         return $destinations;

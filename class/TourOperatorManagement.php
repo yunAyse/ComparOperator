@@ -12,14 +12,7 @@ class TourOperatorManagement
         
         $request = $this->db->query("SELECT * FROM tour_operator");
         return $this->hydrate($request->fetchAll());
-      
-
-
-        // $request = $this->db->prepare('SELECT * FROM tour_operator');
-        // $request->execute();
-        // $tourOperators = $request->fetchAll();
-        // return $tourOperators;
-
+    
     }
 
     public function getOperatorLocation($location) {
@@ -58,9 +51,6 @@ class TourOperatorManagement
     
     public function hydrate(array $data)
         {
-            echo "<pre>";
-            var_dump($data);
-            echo "</pre>";
             $operators = [];
             foreach ($data as $operator) {
                 // var_dump($operator);
