@@ -31,30 +31,15 @@ $allDestinations = $destinationManagement->getAllDestinations();
             <nav class="navbar navbar-expand-lg sticky-top" style="background-color: #0F151C;">
                 <div class="container-fluid d-flex justify-content-between">
                     <div class="d-flex align-items-center gap-2">
-<<<<<<< HEAD
                     <a class="navbar-brand fs-1 fw-bold text-light d-flex align-items-center" href="./index.php"><img src="./img/mountain.png" alt="mountain-icon">Montis Nivei</a>
-=======
-                        <img src="./img/mountain.png" alt="mountain-icon">
-                        <a class="navbar-brand fs-1 fw-bold text-light" href="./index.php">Montis Nivei</a>
-                    </div>
-                    <div>
-                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon" style="background-color: #fff; border-radius: 5px;"></span>
-                        </button>
-                        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                            <div class="navbar-nav fs-6">
-                                <a class="nav-link active text-light" aria-current="page" href="#">Home</a>
-                            </div>
-                        </div>
->>>>>>> anthonyBranch
                     </div>
                     
                 </div>
             </nav>
         </header>
 
-        <section id="accueil">
-            <div class="container vh-100">
+        <section id="accueil" class="pb-5">
+            <div class="container">
                 <div class="row">
                     <div class="d-flex flex-column justify-content-center pt-5">
                         <div class="d-flex flex-wrap justify-content-evenly gap-4 pt-5">
@@ -78,6 +63,9 @@ $allDestinations = $destinationManagement->getAllDestinations();
             </div>
         </section>
 </main>
+<footer class="d-flex justify-content-around py-2">
+<p class="copyright text-white mb-0 mt-3">© 2024 - Ayse Onal & Anthony Canet</p>
+</footer>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
 
