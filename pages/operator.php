@@ -39,19 +39,7 @@ $getAllReview = $review->getAllReview($_SESSION['operator_id']);
         <nav class="navbar navbar-expand-lg sticky-top" style="background-color: #0F151C;">
             <div class="container-fluid d-flex justify-content-between">
                 <div class="d-flex align-items-center gap-2">
-                    <img src="../img/mountain.png" alt="mountain-icon">
-                    <a class="navbar-brand fs-1 fw-bold text-light" href="#">Montis Nivei</a>
-                </div>
-                <div>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon" style="background-color: #fff; border-radius: 5px;"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                        <div class="navbar-nav fs-6">
-                            <a class="nav-link active text-light" aria-current="page" href="../index.php">Home</a>
-                            <a class="nav-link text-light" href="./operator.php">Tour Operators</a>
-                        </div>
-                    </div>
+                <a class="navbar-brand fs-1 fw-bold text-light d-flex align-items-center" href="../index.php"><img src="../img/mountain.png" alt="mountain-icon">Montis Nivei</a>
                 </div>
             </div>
         </nav>
