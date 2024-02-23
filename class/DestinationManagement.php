@@ -13,7 +13,7 @@ class DestinationManagement
       $request = $this->db->query("SELECT * FROM destination");
       $destinations = $request->fetchAll();
 
-      return $this->hydrate( $destinations);
+      return $this->hydrate($destinations);
     }
 
     public function getTheDestinations($location) {
@@ -32,8 +32,12 @@ class DestinationManagement
       $request->execute(
         // ['id' => $destination->getId()] 
       );
-      return $this->hydrateOne($request->fetch()); 
+      return $this->hydrate($request->fetchAll()); 
     }
+
+    // public function getPriceDestination() {
+
+    // }
 
 
     public function getDestinationByOperatorId(Destination $destination) {

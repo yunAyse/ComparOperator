@@ -48,17 +48,17 @@ $getAllReview = $review->getAllReview($_SESSION['operator_id']);
         <section id="operator" style="min-height: 100vh;">
             <div class=" d-flex flex-column align-items-center gap-5 p-5">
                 <h1 class="text-light px-4 py-2 rounded" style="text-transform: uppercase; background-color: #00000049"><?php echo $_SESSION['operator'] ?></h1>
-                <div class="container d-flex flex-row gap-5 justify-content-between"> 
+                <div class="container d-flex flex-row flex-wrap gap-5 justify-content-between"> 
                     <!-- <div class="row"> -->
                     <div id="form" class=" rounded col-12 col-md-6" style="background-color: rgba(217,217,217, 0.5); height:fit-content; padding: 3%">
                     <h6 class="mb-3" style="text-transform: capitalize;">What are your thoughts about this operator ?</h6>
                         <form action="../process/add-review.php" method="post">
                             <div class="form-floating mb-3">
-                                <input class="form-control" placeholder="who is thinking that way ?" style="text-transform: capitalize;" id="floatingTextarea2" style="height: 100px">
+                                <input class="form-control" name="author" placeholder="who is thinking that way ?"  id="floatingTextarea2">
                                 <label for="floatingTextarea2">Name</label>
                             </div>
                             <div class="form-floating mb-3">
-                                <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px; text-transform: capitalize;"></textarea>
+                                <textarea class="form-control" name="message" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px;"></textarea>
                                 <label for="floatingTextarea2">Message</label>
                             </div>
                             <input type="hidden" value="<?php echo $_SESSION['operator_id'] ?>">
@@ -67,7 +67,7 @@ $getAllReview = $review->getAllReview($_SESSION['operator_id']);
                             </div>
                         </form>
                     </div>
-                    <div class="d-flex flex-column align-items-center col-12 col-md-6" >
+                    <div class="d-flex flex-column align-items-center col-12 col-md-4" >
                         <div class="card" style="width: 18rem; background: rgba(217,217,217, 0.3); border: 1px solid #ffffffcc">
                             <div class="card-header">
                                 <h3>Reviews</h3>

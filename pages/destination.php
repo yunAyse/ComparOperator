@@ -6,10 +6,14 @@ $_SESSION['location'] = $_POST['the_location'];
 
 $destinationManagement = new DestinationManagement($db);
 $destinationsByLocation = $destinationManagement->getDestinationByLocation($_SESSION['location']);
+// var_dump($destinationsByLocation);
 
 $tourOperators = new TourOperatorManagement($db);
 
 $operatorsByLocation = $tourOperators->getOperatorLocation($_SESSION['location']);
+// var_dump($operatorsByLocation);
+
+
 ?>
 
 <!DOCTYPE html>
@@ -41,24 +45,26 @@ $operatorsByLocation = $tourOperators->getOperatorLocation($_SESSION['location']
         <div class="d-flex flex-column align-items-center justify-content-center pt-5">
 
           <h1 class="text-light px-4 py-2 rounded" style="text-transform: uppercase; background-color: #00000049">
-          <?php echo $destinationsByLocation->getLocation() ?></h1>
+          <?php echo $_SESSION['location'] ?></h1>
 
           <div class="d-flex flex-wrap justify-content-evenly gap-4 pt-5">
             <?php foreach ($operatorsByLocation as $operator) { ?>
               <div class="card" style="width: 18rem;">
-                <img src="../img-destinations/<?php echo $destinationsByLocation->getLocation() ?>.jpg" class="card-img-top" height="165rem;" alt="...">
+                <img src="../img-destinations/<?php
+            echo $operator['location']; 
+           ?>.jpg" class="card-img-top" height="165rem;" alt="...">
                 <div class="card-body">
                   <div class="d-flex justify-content-between">
-                  <h5 class="card-title fs-4"><?php  echo $operator->getName(); ?></h5>
+                  <h5 class="card-title fs-4"><?php  echo $operator['name']; ?></h5>
                     <p class="card-text fw-bold"><?php                  
-                      echo $destinationsByLocation->getPrice(); 
+                    echo $operator['price']; 
                       ?>$</p>
                   </div>
                   <form action="./operator.php" method="post">
                     <input type="submit" class="bg-info px-2 text-light border-0 rounded" value="Select">
-                    <input type="hidden" name="the_location" value="<?php echo $destinationsByLocation->getLocation() ?>">
-                    <input type="hidden" name="name_operator" value="<?php echo $operator->getName() ?>">
-                    <input type="hidden" name="operator_id" value="<?php echo $operator->getId() ?>">
+                    <input type="hidden" name="the_location" value="<?php $operator['location']; ?>">
+                    <input type="hidden" name="name_operator" value="<?php echo $operator['name'] ?>">
+                    <input type="hidden" name="operator_id" value="<?php echo $operator['tour_operator_id'] ?>">
 
                   </form>
                 </div>

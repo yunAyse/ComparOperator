@@ -31,7 +31,7 @@ $allDestinations = $destinationManagement->getAllDestinations();
             <nav class="navbar navbar-expand-lg sticky-top" style="background-color: #0F151C;">
                 <div class="container-fluid d-flex justify-content-between">
                     <div class="d-flex align-items-center gap-2">
-                    <a class="navbar-brand fs-1 fw-bold text-light d-flex align-items-center" href="./index.php"><img src="./img/mountain.png" alt="mountain-icon">Montis Nivei</a>
+                    <a class="navbar-brand fs-1 fw-bold text-light d-flex align-items-center gap-2" href="./index.php"><img src="./img/mountain.png" alt="mountain-icon">Montis Nivei</a>
                     </div>
                     
                 </div>

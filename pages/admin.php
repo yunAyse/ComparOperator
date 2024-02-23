@@ -56,7 +56,7 @@ $destinationManagement = new DestinationManagement($db);
         <div class="card p-5">
             <h2 class="mb-3">Tour Operator Form</h2>
             <!-- bootstrap -->
-            <form class="w-75" action="../process/add-destination.php" method="post">
+            <form class="w-75" action="../process/add-operator.php" method="post">
                 <div class="mb-3">
                     <label for="name" class="form-label">Name</label>
                     <input type="text" class="form-control" name="name_operator" aria-describedby="emailHelp">

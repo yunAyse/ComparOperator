@@ -15,4 +15,6 @@ if (
             ]);
             $tourOperatorManagement = new TourOperatorManagement($db);
             $tourOperatorManagement->createTourOperator($tourOperator);
+
+            header('Location: ../pages/admin.php');
         }
