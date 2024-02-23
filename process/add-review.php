@@ -36,5 +36,5 @@ if (
             header('Location: ../pages/operator.php');
             exit;
         } else {
-            echo 'error';
+            header('Location: ../pages/operator.php');
         };

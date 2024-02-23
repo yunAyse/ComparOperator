@@ -6,7 +6,7 @@ session_start();
 if (isset($_POST['name_operator']) && isset($_POST['operator_id'])) {
     $_SESSION['operator_id'] = $_POST['operator_id'];
     $_SESSION['operator'] = $_POST['name_operator'];
-} 
+}
 
 $review = new ReviewManagement($db);
 $getAllReview = $review->getAllReview($_SESSION['operator_id']);
@@ -39,47 +39,50 @@ $getAllReview = $review->getAllReview($_SESSION['operator_id']);
         <nav class="navbar navbar-expand-lg sticky-top" style="background-color: #0F151C;">
             <div class="container-fluid d-flex justify-content-between">
                 <div class="d-flex align-items-center gap-2">
-                <a class="navbar-brand fs-1 fw-bold text-light d-flex align-items-center" href="../index.php"><img src="../img/mountain.png" alt="mountain-icon">Montis Nivei</a>
+                    <a class="navbar-brand fs-1 fw-bold text-light d-flex align-items-center gap-2" href="../index.php"><img src="../img/mountain.png" alt="mountain-icon">Montis Nivei</a>
                 </div>
             </div>
         </nav>
     </header>
     <main>
         <section id="operator" style="min-height: 100vh;">
-            <div class="container d-flex flex-column align-items-center p-5">
+            <div class="container d-flex flex-column align-items-center gap-5 p-5">
                 <h1 class="text-light px-4 py-2 rounded" style="text-transform: uppercase; background-color: #00000049"><?php echo $_SESSION['operator'] ?></h1>
-                <div class="container vh-100">
-                    <div class="row">
-                        <div id="form">
-                            <form action="../process/add-review.php" method="post">
-                                <div class="mb-3">
-                                    <label for="author" class="form-label">Name</label>
-                                    <input type="text" placeholder="who is thinking this way?" class="form-control" name="author">
-                                </div>
-                                <div class="mb-3">
-                                    <label for="message" class="form-label">Message</label>
-                                    <textarea class="form-control" name="message"> </textarea>
-                                </div>
-                                <input type="hidden" value="<?php echo $_SESSION['operator_id'] ?>">
-                                <input type="submit" value="Send">
-                            </form>
-                        </div>
-                        <div class="d-flex flex-column align-items-end justify-content-end pt-5">
-                            <div class="card" style="width: 18rem;">
-                                <div class="card-header">
-                                    <h3>Reviews</h3>
-                                </div>
-                                <?php foreach ($getAllReview as $review) { ?>
-                                    <ul class="list-group list-group-flush">
-                                        <li class="list-group-item">
-                                            <h5><?php echo $review->getAuthor() ?></h5>
-                                            <p class="card-title"><?php echo $review->getMessage() ?></p>
-                                        </li>
-                                    </ul>
-                                <?php } ?>
+                <div class="container vh-100 d-flex flex-row justify-content-between">
+                    <!-- <div class="row"> -->
+                    <div id="form" class="w-50 rounded" style="background-color: rgba(217,217,217, 0.5); height:fit-content; padding: 3%">
+                    <h5 class="mb-3" style="text-transform: capitalize;">What are your thoughts about this operator ?</h5>
+                        <form action="../process/add-review.php" method="post">
+                            <div class="form-floating mb-3">
+                                <input class="form-control" placeholder="who is thinking that way ?" style="text-transform: capitalize;" id="floatingTextarea2" style="height: 100px">
+                                <label for="floatingTextarea2">Name</label>
                             </div>
+                            <div class="form-floating mb-3">
+                                <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px; text-transform: capitalize;"></textarea>
+                                <label for="floatingTextarea2">Message</label>
+                            </div>
+                            <input type="hidden" value="<?php echo $_SESSION['operator_id'] ?>">
+                            <div class="d-flex justify-content-center">
+                                <input type="submit" value="Send" class="py-1 bg-info-subtle border-0 rounded-1 w-25 fs-6">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="d-flex flex-column align-items-end">
+                        <div class="card" style="width: 18rem; background: rgba(217,217,217, 0.3); border: 1px solid #ffffffcc">
+                            <div class="card-header">
+                                <h3>Reviews</h3>
+                            </div>
+                            <?php foreach ($getAllReview as $review) { ?>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item" style="background: rgba(217,217,217, 0.5);">
+                                        <h5><?php echo $review->getAuthor() ?></h5>
+                                        <p class="card-title"><?php echo $review->getMessage() ?></p>
+                                    </li>
+                                </ul>
+                            <?php } ?>
                         </div>
                     </div>
+                    <!-- </div> -->
                 </div>
             </div>
         </section>
