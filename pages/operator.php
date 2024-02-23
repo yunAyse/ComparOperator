@@ -46,12 +46,12 @@ $getAllReview = $review->getAllReview($_SESSION['operator_id']);
     </header>
     <main>
         <section id="operator" style="min-height: 100vh;">
-            <div class="container d-flex flex-column align-items-center gap-5 p-5">
+            <div class=" d-flex flex-column align-items-center gap-5 p-5">
                 <h1 class="text-light px-4 py-2 rounded" style="text-transform: uppercase; background-color: #00000049"><?php echo $_SESSION['operator'] ?></h1>
-                <div class="container vh-100 d-flex flex-row justify-content-between">
+                <div class="container d-flex flex-row gap-5 justify-content-between"> 
                     <!-- <div class="row"> -->
-                    <div id="form" class="w-50 rounded" style="background-color: rgba(217,217,217, 0.5); height:fit-content; padding: 3%">
-                    <h5 class="mb-3" style="text-transform: capitalize;">What are your thoughts about this operator ?</h5>
+                    <div id="form" class=" rounded col-12 col-md-6" style="background-color: rgba(217,217,217, 0.5); height:fit-content; padding: 3%">
+                    <h6 class="mb-3" style="text-transform: capitalize;">What are your thoughts about this operator ?</h6>
                         <form action="../process/add-review.php" method="post">
                             <div class="form-floating mb-3">
                                 <input class="form-control" placeholder="who is thinking that way ?" style="text-transform: capitalize;" id="floatingTextarea2" style="height: 100px">
@@ -67,7 +67,7 @@ $getAllReview = $review->getAllReview($_SESSION['operator_id']);
                             </div>
                         </form>
                     </div>
-                    <div class="d-flex flex-column align-items-end">
+                    <div class="d-flex flex-column align-items-center col-12 col-md-6" >
                         <div class="card" style="width: 18rem; background: rgba(217,217,217, 0.3); border: 1px solid #ffffffcc">
                             <div class="card-header">
                                 <h3>Reviews</h3>
