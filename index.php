@@ -38,8 +38,8 @@ $allDestinations = $destinationManagement->getAllDestinations();
             </nav>
         </header>
 
-        <section id="accueil">
-            <div class="container vh-100">
+        <section id="accueil" class="pb-5">
+            <div class="container">
                 <div class="row">
                     <div class="d-flex flex-column justify-content-center pt-5">
                         <div class="d-flex flex-wrap justify-content-evenly gap-4 pt-5">
@@ -63,6 +63,9 @@ $allDestinations = $destinationManagement->getAllDestinations();
             </div>
         </section>
 </main>
+<footer class="d-flex justify-content-around py-2">
+<p class="copyright text-white mb-0 mt-3">© 2024 - Ayse Onal & Anthony Canet</p>
+</footer>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
 

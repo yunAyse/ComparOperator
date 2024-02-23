@@ -87,7 +87,9 @@ $getAllReview = $review->getAllReview($_SESSION['operator_id']);
             </div>
         </section>
     </main>
-
+    <footer class="d-flex justify-content-around py-2">
+<p class="copyright text-white mb-0 mt-3">© 2024 - Ayse Onal & Anthony Canet</p>
+</footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 
