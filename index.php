@@ -41,7 +41,6 @@ $allDestinations = $destinationManagement->getAllDestinations();
                         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                             <div class="navbar-nav fs-6">
                                 <a class="nav-link active text-light" aria-current="page" href="#">Home</a>
-                                <a class="nav-link text-light" href="./pages/operator.php">Tour Operators</a>
                             </div>
                         </div>
                     </div>
