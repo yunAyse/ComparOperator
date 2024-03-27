@@ -25,8 +25,8 @@ class ReviewManagement
       $request = $this->db->prepare("INSERT INTO review (message, author, tour_operator_id) VALUES (:message, :author, :tour_operator_id)");
     
       // Bind values using bindValue
-      $request->bindValue(':message', $review->getMessage());
-      $request->bindValue(':author', $review->getAuthor());
+      $request->bindValue(':message', htmlspecialchars($review->getMessage()));
+      $request->bindValue(':author', htmlspecialchars($review->getAuthor()));
       $request->bindValue(':tour_operator_id', $review->getTourOperator());
     
       // Execute the query
