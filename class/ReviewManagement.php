@@ -9,31 +9,42 @@ class ReviewManagement
     }
 
 
-    public function getAllReview($id){
-        $request = $this->db->prepare("SELECT * FROM review WHERE tour_operator_id = :tour_operator_id");
-        $request->execute([
-            'tour_operator_id'=>$id,
-        
-       ]);
-        return  $this->hydrate($request->fetchAll());
+    public function getAllReview($id) {
+      $request = $this->db->prepare("SELECT * FROM review WHERE tour_operator_id = :tour_operator_id");
+    
+      // Bind value using bindValue
+      $request->bindValue(':tour_operator_id', $id);
+    
+      // Execute the query
+      $request->execute();
+    
+      return $this->hydrate($request->fetchAll());
     }
 
     public function createReview($review) {
       $request = $this->db->prepare("INSERT INTO review (message, author, tour_operator_id) VALUES (:message, :author, :tour_operator_id)");
-      $request->execute([
-        'message' => $review->getMessage(),
-        'author' => $review->getAuthor(),
-        'tour_operator_id' => $review->getTourOperator()
-      ]);
+    
+      // Bind values using bindValue
+      $request->bindValue(':message', $review->getMessage());
+      $request->bindValue(':author', $review->getAuthor());
+      $request->bindValue(':tour_operator_id', $review->getTourOperator());
+    
+      // Execute the query
+      $request->execute();
     }
 
     public function operatorByReview(Review $review) {
       $request = $this->db->prepare("SELECT tour_operator_id FROM review WHERE tour_operator_id = :id");
-      $request->execute([
-        'id' => $review->getTourOperator(),
-      ]);
+    
+      // Bind value using bindValue
+      $request->bindValue(':id', $review->getTourOperator());
+    
+      // Execute the query
+      $request->execute();
+    
       return $request->fetchAll();
     }
+    
 
     public function hydrate(array $data){
         $reviews = [];

@@ -49,25 +49,32 @@ class DestinationManagement
       return $request->fetchAll();  
     }
 
-  public function connectDestinationAndOperator(Destination $destination)
-  {
-    $request = $this->db->prepare("SELECT * FROM tour_operator INNER JOIN destination ON tour_operator.id = :id ");
-    $request->execute([
-      'id' => $destination->getId()
-    ]);
-    $destination = $request->fetchAll();
-    return $destination;
-  }
+    public function connectDestinationAndOperator(Destination $destination)
+    {
+      $request = $this->db->prepare("SELECT * FROM tour_operator INNER JOIN destination ON tour_operator.id = :id ");
+    
+      // Bind value using bindValue
+      $request->bindValue(':id', $destination->getId());
+    
+      // Execute the query
+      $request->execute();
+    
+      $destination = $request->fetchAll();
+      return $destination;
+    }
 
   public function createDestination(Destination $destination)
   {
 
     $request = $this->db->prepare("INSERT INTO destination (location, price, tour_operator_id) VALUES (:location, :price, :tour_operator_id)");
-    $request->execute([
-      'location' => $destination->getLocation(),
-      'price' => $destination->getPrice(),
-      'tour_operator_id' => $destination->getTourOperator()
-    ]);
+
+    // Bind values using bindValue
+    $request->bindValue(':location', $destination->getLocation());
+    $request->bindValue(':price', $destination->getPrice());
+    $request->bindValue(':tour_operator_id', $destination->getTourOperator());
+    
+    // Execute the query
+    $request->execute();
   }
 
   public function hydrate(array $data)

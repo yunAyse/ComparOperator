@@ -15,41 +15,50 @@ class TourOperatorManagement
         return $this->hydrate($request->fetchAll());
     }
 
-    public function getOperatorLocation($location)
-    {
+    public function getOperatorLocation($location) {
         $request = $this->db->prepare("SELECT * FROM destination JOIN tour_operator ON destination.tour_operator_id = tour_operator.id WHERE destination.location = :location");
-        $request->execute([
-            'location' => $location
-        ]);
+      
+        // Bind value using bindValue
+        $request->bindValue(':location', $location);
+      
+        // Execute the query
+        $request->execute();
+      
         $operatorLocation = $request->fetchAll(PDO::FETCH_ASSOC);
         return $operatorLocation;
-    }
+      }
 
 
 
-    public function selectTourOperator(TourOperator $tourOperator)
-    {
-        $request = $this->db->prepare("SELECT * FROM tour_operator JOIN destination ON tour_operator_id = destination.tour_operator_id WHERE tour_operator.name = :name ");
-        $request->execute([
-            'name' => $tourOperator->getName()
-        ]);
+      public function selectTourOperator(TourOperator $tourOperator)
+      {
+        $request = $this->db->prepare("SELECT * FROM tour_operator JOIN destination ON tour_operator_id = destination.tour_operator_id WHERE tour_operator.name = :name");
+      
+        // Bind value using bindValue
+        $request->bindValue(':name', $tourOperator->getName());
+      
+        // Execute the query
+        $request->execute();
+      
         $selectTourOperator = $request->fetchAll();
-        // var_dump($selectTourOperator);
+      
         return $this->hydrate($selectTourOperator);
-    }
+      }
 
-    public function createTourOperator(TourOperator $tourOperator)
-    {
-
+      public function createTourOperator(TourOperator $tourOperator)
+      {
         $request = $this->db->prepare("INSERT INTO tour_operator (name, link, grade_count, grade_total, is_premium) VALUES (:name, :link, :grade_count, :grade_total, :is_premium)");
-        $request->execute([
-            'name' => $tourOperator->getName(),
-            'link' => $tourOperator->getLink(),
-            'grade_count' => 0,
-            'grade_total' => 0,
-            'is_premium' => $tourOperator->getIsPremium()
-        ]);
-    }
+      
+        // Bind values using bindValue
+        $request->bindValue(':name', $tourOperator->getName());
+        $request->bindValue(':link', $tourOperator->getLink());
+        $request->bindValue(':grade_count', 0, PDO::PARAM_INT); // Explicitly set data type for clarity
+        $request->bindValue(':grade_total', 0, PDO::PARAM_INT); // Explicitly set data type for clarity
+        $request->bindValue(':is_premium', $tourOperator->getIsPremium());
+      
+        // Execute the query
+        $request->execute();
+      }
 
     public function hydrate(array $data)
     {
